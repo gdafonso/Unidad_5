@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 public class BbddFragment extends Fragment {
 
-    private BbddViewModel bbddViewModel;
     private TextView txtTotalRegistros, txtCabecera, txtResultados;
     private EditText txtNombre, txtDireccion, txtTelefono;
     private Cursor c;
@@ -38,8 +37,7 @@ public class BbddFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        bbddViewModel =
-                new ViewModelProvider(this).get(BbddViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_bbdd, container, false);
 
         /*
@@ -68,14 +66,6 @@ public class BbddFragment extends Fragment {
         int totalRegistros = c.getCount();
         // Se muestra el número de registros en un componente de tipo TextView.
         txtTotalRegistros.setText(String.valueOf(totalRegistros));
-
-
-        bbddViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                txtCabecera.setText(s);
-            }
-        });
 
         /*
         Evento onClick para insertar los datos introducidos en los campos EditText.
