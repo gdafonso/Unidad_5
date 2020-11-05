@@ -14,7 +14,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.unidad5.R;
-import com.example.unidad5.ui.content.ContentViewModel;
 
 public class ContentFragment extends Fragment  {
     private ContentViewModel contentViewModel;
@@ -24,7 +23,7 @@ public class ContentFragment extends Fragment  {
         contentViewModel =
                 new ViewModelProvider(this).get(ContentViewModel.class);
         View root = inflater.inflate(R.layout.fragment_content, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+        final TextView textView = root.findViewById(R.id.lblBBDD_cabecera);
         contentViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.unidad5.R;
-import com.example.unidad5.ui.preferences.PreferencesViewModel;
 
 public class PreferencesFragment extends Fragment {
 
@@ -25,7 +24,7 @@ public class PreferencesFragment extends Fragment {
         preferencesViewModel =
                 new ViewModelProvider(this).get(PreferencesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_preferences, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+        final TextView textView = root.findViewById(R.id.lblBBDD_cabecera);
         preferencesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
