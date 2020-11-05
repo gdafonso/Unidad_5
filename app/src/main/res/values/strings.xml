@@ -6,4 +6,14 @@
     <string name="title_contentprovider">ContentProvider</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="textoboton1">Guardar</string>
+    <string name="textoboton2">Leer</string>
+    <string name="textoExternos">Fichero Externos</string>
+    <string name="textoInternos">Fichero Internos</string>
+    <string name="textoboton3">Guardar</string>
+    <string name="textoboton4">Leer</string>
+    <string name="textoRaw">Fichero Raw</string>
+    <string name="textoboton5">Guardar</string>
+    <string name="textoboton6">Leer</string>
 </resources>
