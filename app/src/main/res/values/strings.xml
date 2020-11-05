@@ -23,4 +23,5 @@
     <string name="bbdd_btn_guardar">Almacenar datos lugar</string>
     <string name="bbdd_lbl_contador">Número de registros</string>
     <string name="bbdd_lbl_total"></string>
+    <string name="bbdd_btn_eliminar">Eliminar Lugar</string>
 </resources>

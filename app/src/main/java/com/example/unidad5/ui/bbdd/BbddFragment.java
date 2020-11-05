@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,21 +12,26 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.unidad5.R;
 
+import java.util.ArrayList;
+
 public class BbddFragment extends Fragment {
 
     private BbddViewModel bbddViewModel;
-    private TextView txtTotalRegistros, txtCabecera;
+    private TextView txtTotalRegistros, txtCabecera, txtResultados;
     private EditText txtNombre, txtDireccion, txtTelefono;
     private Cursor c;
     private Bundle bundle;
@@ -43,8 +49,10 @@ public class BbddFragment extends Fragment {
         txtNombre = root.findViewById(R.id.txtBBDD_nombre);
         txtDireccion = root.findViewById(R.id.txtBBDD_direccion);
         txtTelefono = root.findViewById(R.id.txtBBDD_telefono);
-
+        txtTotalRegistros = root.findViewById(R.id.lblBBDD_total);
+        txtResultados = root.findViewById(R.id.txtBBDD_listado);
         final Button btnGuardar = (Button) root.findViewById(R.id.btnBBDD_guardar);
+
         /*
         Se declara e inicializa la clase ContentResolver,
         referenciándole el método getContentResolver(),
@@ -55,6 +63,12 @@ public class BbddFragment extends Fragment {
 
         c = resolver.query(CompartirDatos.CONTENT_URI,
                 CompartirDatos.columnas, null, null, null);
+
+        // Se obtiene el número de registros devueltos por la consulta.
+        int totalRegistros = c.getCount();
+        // Se muestra el número de registros en un componente de tipo TextView.
+        txtTotalRegistros.setText(String.valueOf(totalRegistros));
+
 
         bbddViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -70,8 +84,8 @@ public class BbddFragment extends Fragment {
             public void onClick(View view){
 
                 String nombre = txtNombre.getText().toString();
-                String direccion = txtNombre.getText().toString();
-                String telefono = txtNombre.getText().toString();
+                String direccion = txtDireccion.getText().toString();
+                String telefono = txtTelefono.getText().toString();
                 if (nombre.equals("") || direccion.equals("") || telefono.equals("")) {
                     Toast.makeText(getActivity().getApplicationContext(),
                             "Es necesario que introduzca todos los datos.",
@@ -102,7 +116,7 @@ public class BbddFragment extends Fragment {
                 }
             }
         });
-
+        mostrarRegistrosAplicacion();
         return root;
     }
 
@@ -112,6 +126,37 @@ public class BbddFragment extends Fragment {
     */
     public void refrescarPantalla()
     {
-        onCreate(bundle);
+        getFragmentManager().beginTransaction().detach(this).attach(this).commit();
     }
+
+    /*
+    Método que permite consultar la tabla Lugares, almacenando los resultados
+	en un objeto Cursor. Este método devuelve un ArrayList de objetos Lugares,
+	con todos los registros almacenados.
+	*/
+    public void mostrarRegistrosAplicacion() {
+
+        ContentResolver resolver = getActivity().getApplicationContext().getContentResolver();
+        c = resolver.query(CompartirDatos.CONTENT_URI,
+                CompartirDatos.columnas, null, null, null);
+
+        if (c.moveToFirst()){
+            String nombre, direccion, telefono;
+            int colNombre, colDireccion, colTelefono;
+            colNombre = c.getColumnIndex(EstructuraDatos.COLUMN_NAME_NOMBRE);
+            colDireccion = c.getColumnIndex(EstructuraDatos.COLUMN_NAME_DIRECCION);
+            colTelefono = c.getColumnIndex(EstructuraDatos.COLUMN_NAME_TELEFONO);
+
+            txtResultados.setText("");
+            do {
+                nombre = c.getString(colNombre);
+                direccion = c.getString(colDireccion);
+                telefono = c.getString(colTelefono);
+
+                txtResultados.append(nombre + " - " + direccion + " - " + telefono + "\n");
+            }while(c.moveToNext());
+        }
+    }
+
+
 }
