@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_preferences"
+        android:icon="@drawable/ic_preferences_black_24dp"
+        android:title="@string/title_preferences" />
+
+    <item
+        android:id="@+id/navigation_ficheros"
+        android:icon="@drawable/ic_file_black_24dp"
+        android:title="@string/title_ficheros" />
+
+    <item
+        android:id="@+id/navigation_bbdd"
+        android:icon="@drawable/ic_bbdd_black_24dp"
+        android:title="@string/title_bbdd" />
+
+    <item
+        android:id="@+id/navigation_contentprovider"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_contentprovider" />
+</menu>

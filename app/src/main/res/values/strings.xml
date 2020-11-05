@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Unidad 5</string>
+    <string name="title_preferences">Preferences</string>
+    <string name="title_ficheros">Ficheros</string>
+    <string name="title_bbdd">BBDD</string>
+    <string name="title_contentprovider">ContentProvider</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
