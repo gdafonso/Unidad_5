@@ -27,20 +27,10 @@ import static android.content.Context.MODE_PRIVATE;
 public class PreferencesFragment extends Fragment {
     public static final String PREFS_NAME = "MySharedFile";
 
-    private PreferencesViewModel preferencesViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        preferencesViewModel =
-                new ViewModelProvider(this).get(PreferencesViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_preferences, container, false);
-        final TextView textView = root.findViewById(R.id.lblBBDD_cabecera);
-        preferencesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
 
         return root;
     }

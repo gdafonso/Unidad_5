@@ -29,40 +29,31 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 public class FicherosFragment extends Fragment {
 
-    private FicherosViewModel ficherosViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ficherosViewModel =
-                new ViewModelProvider(this).get(FicherosViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_ficheros, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        ficherosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
 
-        final EditText textoescrito=(EditText) root.findViewById(R.id.edit1);
-        final Button botonguardar=(Button) root.findViewById(R.id.button1);
-        final Button botonleer=(Button) root.findViewById(R.id.button2);
-        final String FILENAME = "ficherointerno";
-        final TextView etiqueta=(TextView) root.findViewById(R.id.textView1);
+        //esto general
+        final EditText textoescrito= root.findViewById(R.id.editGuardar);
+        final TextView etiqueta= root.findViewById(R.id.txtLeido);
         textoescrito.setText("");
-
+        //esto de internos
+        final Button botonguardar= root.findViewById(R.id.btnFIGuardar);
+        final Button botonleer= root.findViewById(R.id.btnFILeer);
+        final String FILENAME = "ficherointerno";
         //esto de externos
-        final Button botonguardarext=(Button) root.findViewById(R.id.button3);
-        final Button botonleerext=(Button) root.findViewById(R.id.button4);
-
+        final Button botonguardarext= root.findViewById(R.id.btnFEGuardar);
+        final Button botonleerext= root.findViewById(R.id.btnFELeer);
         // y este para el de raw
-        final Button botonleerraw=(Button) root.findViewById(R.id.button6);
-        final Button botonguardarraw=(Button) root.findViewById(R.id.button5);
+        final Button botonguardarraw= root.findViewById(R.id.btnFRGuardar);
+        final Button botonleerraw= root.findViewById(R.id.btnFRLeer);
 
-
+        //esto de internos
         botonguardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
@@ -70,7 +61,7 @@ public class FicherosFragment extends Fragment {
 
                 FileOutputStream fos = null;
                 try {
-                    fos = (FileOutputStream) getContext().openFileOutput(FILENAME,  getContext().MODE_APPEND);
+                    fos =  getContext().openFileOutput(FILENAME,  getContext().MODE_APPEND);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -92,7 +83,7 @@ public class FicherosFragment extends Fragment {
         botonleer.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 InputStreamReader ficherolectura=null;
-                String cadena="";
+                String cadena;
                 try {
                     ficherolectura = new InputStreamReader(getContext().openFileInput(FILENAME));
                     BufferedReader br= new BufferedReader(ficherolectura);
@@ -115,7 +106,6 @@ public class FicherosFragment extends Fragment {
             }
         });
 
-
         //esto de externos, hasta aquí de internos
         botonguardarext.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -125,17 +115,15 @@ public class FicherosFragment extends Fragment {
                 if (estado.equals(Environment.MEDIA_MOUNTED)){
                     memok = true;
                 }
-                TextView etiqueta = (TextView) root.findViewById(R.id.textView1);
-                etiqueta.setText(estado.toString()+memok);
-                if (memok==true){
+                TextView etiqueta = root.findViewById(R.id.txtLeido);
+                etiqueta.setText(estado);
+                if (memok){
                     try{
                         File ruta = new File(getContext().getExternalFilesDir(null),"ficheroexterno.txt");
                         Toast toast1 =Toast.makeText(getContext().getApplicationContext(),ruta.toString(), Toast.LENGTH_SHORT);
                         toast1.show();
                         OutputStreamWriter salida = new OutputStreamWriter(new FileOutputStream(ruta));
-                        //salida.append(textoescrito.getText().toString());
                         salida.write(textoescrito.getText().toString());
-                        //salida.write("Otra vez con ficheros, esta vez externos");
                         salida.close();
                     }catch (Exception ex){
                         Log.e("Ficherosexternos", "Error al escribir fichero en memoria externa");
@@ -147,14 +135,13 @@ public class FicherosFragment extends Fragment {
         botonleerext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 try{
                     File ruta = new File(getContext().getExternalFilesDir(null),"ficheroexterno.txt");
                     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ruta)));
                     String cadena = br.readLine();
                     br.close();
-                    Toast toast1 =Toast.makeText(getContext().getApplicationContext(),cadena.toString(), Toast.LENGTH_SHORT);
-                    etiqueta.setText(cadena.toString());
+                    Toast toast1 =Toast.makeText(getContext().getApplicationContext(),cadena, Toast.LENGTH_SHORT);
+                    etiqueta.setText(cadena);
                     toast1.show();
                 }catch (Exception ex){
                     Log.e("Ficherosexternos", "Error al leer fichero en memoria externa");
@@ -165,7 +152,6 @@ public class FicherosFragment extends Fragment {
 
 
         //// y a partir de aquí, los ficheros Raw
-
         botonleerraw.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 BufferedReader br;
@@ -173,13 +159,12 @@ public class FicherosFragment extends Fragment {
                 String todo="";
                 try
                 {
-                    String cadena="";
+                    String cadena;
                     ficheroraw = getResources().openRawResource(R.raw.android);
                     br =new BufferedReader(new InputStreamReader(ficheroraw));
                     while ((cadena = br.readLine()) != null){
                         Log.i("Aplicacion Ficheros raw", cadena);
-                        //todo.concat(todo + cadena);
-                        etiqueta.setText(cadena.toString());
+                        etiqueta.setText(cadena);
                     }
                     //etiqueta.setText(todo);
                     ficheroraw.close();
@@ -191,7 +176,7 @@ public class FicherosFragment extends Fragment {
 
         botonguardarraw.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                etiqueta.setText("En ficheros Raw, sólo escritura");
+                etiqueta.setText("En ficheros Raw, sólo se puede leer no escribir");
 
             }
         });
