@@ -43,6 +43,7 @@ public class BbddFragment extends Fragment {
         txtNombre = root.findViewById(R.id.txtBBDD_nombre);
         txtDireccion = root.findViewById(R.id.txtBBDD_direccion);
         txtTelefono = root.findViewById(R.id.txtBBDD_telefono);
+
         final Button btnGuardar = (Button) root.findViewById(R.id.btnBBDD_guardar);
         /*
         Se declara e inicializa la clase ContentResolver,
@@ -84,8 +85,10 @@ public class BbddFragment extends Fragment {
                     values.put(EstructuraDatos.COLUMN_NAME_NOMBRE, nombre);
                     values.put(EstructuraDatos.COLUMN_NAME_DIRECCION, direccion);
                     values.put(EstructuraDatos.COLUMN_NAME_TELEFONO, telefono);
-                    /*Se invoca al método insert(), indicando la URI definida y los valores a
-                    insertar entre sus argumentos.*/
+                    /*
+                    Se invoca al método insert(), indicando la URI definida y los valores a
+                    insertar entre sus argumentos.
+                    */
                     getActivity().getApplicationContext().getContentResolver().
                             insert(CompartirDatos.CONTENT_URI, values);
                     refrescarPantalla();

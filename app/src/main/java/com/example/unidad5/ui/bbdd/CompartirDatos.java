@@ -14,7 +14,7 @@ mecanismos necesarios para intercambiar información con el resto de aplicacione
  */
 public class CompartirDatos extends ContentProvider {
 
-    private static final String AUTORIDAD = "com.example.unidad5.bbdd.CompartirDatos";
+    private static final String AUTORIDAD = "com.example.unidad5.ui.bbdd.CompartirDatos";
 
     /*
     Se declara e inicializa una constante de la clase Uri que recogerá la URI que identificará
@@ -51,12 +51,18 @@ public class CompartirDatos extends ContentProvider {
         String where = selection;
         if(uriMatcher.match(uri) == LUGARES_ID)
         {
-            /*Se establece la cláusula WHERE con la condición del campo y valor como condición de eliminación.*/
+            /*
+            Se establece la cláusula WHERE con la condición del campo
+            y valor como condición de eliminación.
+            */
             where = EstructuraDatos._ID + "=" + uri.getLastPathSegment();
         }
         db = datos.getReadableDatabase();
-        /*Se invoca al método delete(), indicando entre sus argumentos la tabla, y la cláusula WHERE con la condición
-        que debe cumplir el registro a eliminar.*/
+        /*
+        Se invoca al método delete(), indicando entre sus argumentos la tabla,
+        y la cláusula WHERE con la condición
+        que debe cumplir el registro a eliminar.
+        */
         id = db.delete(EstructuraDatos.TABLE_NAME, where, arg2);
 
         return id;
