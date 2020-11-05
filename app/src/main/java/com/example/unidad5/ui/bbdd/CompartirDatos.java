@@ -14,7 +14,7 @@ mecanismos necesarios para intercambiar información con el resto de aplicacione
  */
 public class CompartirDatos extends ContentProvider {
 
-    private static final String AUTORIDAD = "com.example.covidapp.provider.CompartirDatos";
+    private static final String AUTORIDAD = "com.example.unidad5.bbdd.CompartirDatos";
 
     /*
     Se declara e inicializa una constante de la clase Uri que recogerá la URI que identificará

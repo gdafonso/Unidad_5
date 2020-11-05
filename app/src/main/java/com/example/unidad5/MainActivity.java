@@ -1,7 +1,9 @@
 package com.example.unidad5;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.example.unidad5.ui.bbdd.BaseDatos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
