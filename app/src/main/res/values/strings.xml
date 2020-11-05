@@ -7,6 +7,18 @@
     <string name="hello_blank_fragment">hello blank fragment</string>
     <string name="txtcontentprovider">Implementado en la BBDD</string>
 
+    <!-- Shared -->
+    <string name="etiquetanombre">Indique su nombre</string>
+    <string name="etiquetnick">Indique su nick</string>
+    <string name="botonnombre">Guardar nombre</string>
+    <string name="botonnick">Guardar nick</string>
+    <string name="botontodo">Guardar Todo</string>
+    <string name="botonmostrartodo">Mostrar en Textview</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="textoboton">Preferencias</string>
+    <string name="botonxml">Preferencias, pero xml</string>
+    <string name="mostrarxml">Mostrar Preferencias, pero las del xml</string>
+    <string name="textMusica">Música</string>
 
     <!-- Ficheros -->
     <string name="txtGuardar">Texto a guardar:</string>

@@ -32,6 +32,119 @@ public class PreferencesFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_preferences, container, false);
 
+        final TextView etiqueta = root.findViewById(R.id.textView2);
+        final EditText cuadronombre = root.findViewById(R.id.CampoNombre);
+        final EditText cuadroalias = root.findViewById(R.id.CampoAlias);
+        final Button botonguardarnombre = root.findViewById(R.id.buttonguardar);
+        final Button botonguardaralias = root.findViewById(R.id.button1);
+        final ToggleButton toggle = root.findViewById(R.id.toggleButton1);
+        final Button botonguardatodo = root.findViewById(R.id.buttonmostrar);
+        final Button botonmuestratodo = root.findViewById(R.id.button4);
+        final Button botonxmlpreferences = root.findViewById(R.id.buttonxml);
+        final Button botonmostrarxmlpreferences = root.findViewById(R.id.mostrarxml);
+
+        etiqueta.setText("");
+
+        botonguardarnombre.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String nombre = cuadronombre.getText().toString();
+                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferencias.edit();
+                editor.putString("nombre", nombre);
+                editor.commit();
+                cuadronombre.setText("");
+            }//onClick
+        });
+
+        botonguardaralias.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String nick = cuadroalias.getText().toString();
+                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferencias.edit();
+                editor.putString("alias", nick);
+                editor.commit();
+                cuadroalias.setText("");
+            }//onClick
+        });
+        toggle.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                final String musica;
+                if (toggle.isChecked())
+                    musica = "ON";
+                else
+                    musica = "OFF";
+
+                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferencias.edit();
+                editor.putString("musica", musica);
+                editor.commit();
+            }//onClick
+        });
+
+        botonguardatodo.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                String nombre = cuadronombre.getText().toString();
+                String nick = cuadroalias.getText().toString();
+                final String musica;
+                if (toggle.isChecked())
+                    musica = "ON";
+                else
+                    musica = "OFF";
+
+                SharedPreferences.Editor editor = preferencias.edit();
+                editor.putString("nombre",nombre);
+                editor.commit();
+                editor.putString("alias",nick);
+                editor.commit();
+                editor.putString("musica",musica);
+                editor.commit();
+                cuadroalias.setText("");
+                cuadronombre.setText("");
+            }
+        });
+
+        botonmuestratodo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                String nombre = preferencias.getString("nombre", "no definido");
+                String alias = preferencias.getString("alias", "no definido");
+                String musiconoff = preferencias.getString("musica", "sin definir");
+                etiqueta.setText(nombre + ", " + alias + ", " + musiconoff);
+            }//onClick
+        });
+
+        botonxmlpreferences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intencionxml = new Intent(getContext(), PreferenciasContenedor.class);
+                getContext().startActivity(intencionxml);
+
+            }
+        });
+
+        botonmostrarxmlpreferences.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                SharedPreferences preferencias = getContext().getSharedPreferences("com.example.shared_preferences", MODE_PRIVATE);
+                HashSet vacio=new HashSet<String>();
+                vacio.add("1");
+                vacio.add("2");
+                String nombre = preferencias.getString("Nombre", "no definido");
+                String alias = preferencias.getString("Alias", "no definido");
+                String musiconoff = String.valueOf(preferencias.getBoolean("Music", false));
+                String sonidos = String.valueOf(preferencias.getBoolean("Sonidos", false));
+                String nivel = preferencias.getString("Nivel", "sin definir");
+                HashSet niveles = (HashSet) preferencias.getStringSet("Niveles", vacio);
+                String nivelesstring = niveles.toString();
+                String vibracion = String.valueOf(preferencias.getBoolean("Vibracion", false));
+                String giros = String.valueOf(preferencias.getBoolean("Giroscopio", false));
+                etiqueta.setText(nombre + ", " + alias + ", " + musiconoff + ", " + sonidos + ", " + nivel + ", " +nivelesstring + ", " + vibracion + ", " + giros);
+
+            }//onClick
+        });
+
         return root;
     }
 }
