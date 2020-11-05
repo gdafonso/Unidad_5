@@ -19,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.unidad5.R;
-import com.example.unidad5.ui.ficheros.FicherosViewModel;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -40,7 +39,7 @@ public class FicherosFragment extends Fragment {
         ficherosViewModel =
                 new ViewModelProvider(this).get(FicherosViewModel.class);
         View root = inflater.inflate(R.layout.fragment_ficheros, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+        final TextView textView = root.findViewById(R.id.lblBBDD_cabecera);
         ficherosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
