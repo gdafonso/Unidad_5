@@ -1,20 +1,23 @@
 <resources>
+    <!-- Menú -->
     <string name="app_name">Unidad 5</string>
     <string name="title_preferences">Preferences</string>
     <string name="title_ficheros">Ficheros</string>
     <string name="title_bbdd">BBDD</string>
     <string name="title_contentprovider">ContentProvider</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="textoboton1">Guardar</string>
-    <string name="textoboton2">Leer</string>
-    <string name="textoExternos">Fichero Externos</string>
-    <string name="textoInternos">Fichero Internos</string>
-    <string name="textoboton3">Guardar</string>
-    <string name="textoboton4">Leer</string>
-    <string name="textoRaw">Fichero Raw</string>
-    <string name="textoboton5">Guardar</string>
-    <string name="textoboton6">Leer</string>
+
+    <!-- Ficheros -->
+    <string name="txtGuardar">Texto a guardar:</string>
+    <string name="txtMostrar">Texto leído:</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="btnLeer">Leer</string>
+    <string name="txtFicheroInterno">Fichero Interno</string>
+    <string name="txtFicheroExterno">Fichero Externo</string>
+    <string name="txtFicheroRaw">Fichero Raw</string>
+
     <!-- BBDD -->
     <string name="bbdd_cabecera">Introducir datos nuevo Lugar</string>
     <string name="bbdd_lbl_nombre">Nombre</string>
@@ -22,5 +25,5 @@
     <string name="bbdd_lbl_telefono">Teléfono</string>
     <string name="bbdd_btn_guardar">Almacenar datos lugar</string>
     <string name="bbdd_lbl_contador">Número de registros</string>
-    <string name="bbdd_lbl_total"></string>
+    <string name="bbdd_lbl_total">XX</string>
 </resources>

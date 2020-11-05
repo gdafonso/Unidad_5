@@ -24,7 +24,6 @@ import com.example.unidad5.R;
 
 public class BbddFragment extends Fragment {
 
-    private BbddViewModel bbddViewModel;
     private TextView txtTotalRegistros, txtCabecera;
     private EditText txtNombre, txtDireccion, txtTelefono;
     private Cursor c;
@@ -32,8 +31,7 @@ public class BbddFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        bbddViewModel =
-                new ViewModelProvider(this).get(BbddViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_bbdd, container, false);
 
         /*
@@ -44,7 +42,7 @@ public class BbddFragment extends Fragment {
         txtDireccion = root.findViewById(R.id.txtBBDD_direccion);
         txtTelefono = root.findViewById(R.id.txtBBDD_telefono);
 
-        final Button btnGuardar = (Button) root.findViewById(R.id.btnBBDD_guardar);
+        final Button btnGuardar = root.findViewById(R.id.btnBBDD_guardar);
         /*
         Se declara e inicializa la clase ContentResolver,
         referenciándole el método getContentResolver(),
@@ -55,13 +53,6 @@ public class BbddFragment extends Fragment {
 
         c = resolver.query(CompartirDatos.CONTENT_URI,
                 CompartirDatos.columnas, null, null, null);
-
-        bbddViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                txtCabecera.setText(s);
-            }
-        });
 
         /*
         Evento onClick para insertar los datos introducidos en los campos EditText.

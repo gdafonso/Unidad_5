@@ -1,106 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bbdd.BbddFragment">
+    tools:context=".ui.bbdd.BbddFragment"
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/lblBBDD_cabecera"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/bbdd_cabecera"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
-        <TextView
-            android:id="@+id/lblBBDD_cabecera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/bbdd_cabecera"
-            android:textSize="18sp"
-            android:textStyle="normal" />
+    <TextView
+        android:id="@+id/lblBBDD_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bbdd_lbl_nombre"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
-        <TextView
-            android:id="@+id/lblBBDD_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bbdd_lbl_nombre"
-            android:textSize="18sp"
-            android:textStyle="normal" />
-        <EditText
-            android:id="@+id/txtBBDD_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="normal" />
+    <EditText
+        android:id="@+id/txtBBDD_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
-        <TextView
-            android:id="@+id/lblBBDD_direccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bbdd_lbl_direccion"
-            android:textSize="18sp"
-            android:textStyle="normal" />
-        <EditText
-            android:id="@+id/txtBBDD_direccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="normal" />
+    <TextView
+        android:id="@+id/lblBBDD_direccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bbdd_lbl_direccion"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
-        <TextView
-            android:id="@+id/lblBBDD_telefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bbdd_lbl_telefono"
-            android:textSize="18sp"
-            android:textStyle="normal" />
-        <EditText
-            android:id="@+id/txtBBDD_telefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="normal" />
+    <EditText
+        android:id="@+id/txtBBDD_direccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
-        <Button
-            android:id="@+id/btnBBDD_guardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bbdd_btn_guardar">
-        </Button>
-        <TextView
-            android:id="@+id/lblBBDD_contador"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bbdd_lbl_contador"
-            android:textSize="18sp"
-            android:textStyle="normal" />
-        <TextView
-            android:id="@+id/lblBBDD_total"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bbdd_lbl_total"
-            android:textSize="18sp"
-            android:textStyle="normal" />
-        <TextView
-            android:id="@+id/text_notifications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="2dp"
-            android:text="@string/hello_blank_fragment"
-            />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/lblBBDD_telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bbdd_lbl_telefono"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
+    <EditText
+        android:id="@+id/txtBBDD_telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
+    <Button
+        android:id="@+id/btnBBDD_guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bbdd_btn_guardar">
+    </Button>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/lblBBDD_contador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bbdd_lbl_contador"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/lblBBDD_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bbdd_lbl_total"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+</LinearLayout>

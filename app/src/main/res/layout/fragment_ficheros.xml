@@ -7,149 +7,156 @@
     tools:context=".ui.ficheros.FicherosFragment">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txtGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="Texto a guardar:"
+        android:text="@string/txtGuardar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit1"
+        android:id="@+id/editGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@id/txtGuardar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/txtMostrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@id/textView5"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="Texto leído:"
+        android:text="@string/txtMostrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit1" />
+        app:layout_constraintTop_toBottomOf="@id/editGuardar" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtLeido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
         android:text=""
-        app:layout_constraintStart_toEndOf="@id/textView6"
-        app:layout_constraintTop_toBottomOf="@id/edit1" />
+        app:layout_constraintStart_toEndOf="@id/txtMostrar"
+        app:layout_constraintTop_toBottomOf="@id/editGuardar" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txtFicheroInterno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoInternos"
+        android:text="@string/txtFicheroInterno"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView1" />
+        app:layout_constraintTop_toBottomOf="@id/txtLeido" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnFIGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoboton1"
+        android:text="@string/btnGuardar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4" />
+        app:layout_constraintTop_toBottomOf="@id/txtFicheroInterno" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnFILeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoboton2"
-        app:layout_constraintStart_toEndOf="@id/button1"
-        app:layout_constraintTop_toBottomOf="@id/textView4" />
+        android:text="@string/btnLeer"
+        app:layout_constraintStart_toEndOf="@id/btnFIGuardar"
+        app:layout_constraintTop_toBottomOf="@id/txtFicheroInterno" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtFicheroExterno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoExternos"
+        android:text="@string/txtFicheroExterno"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button2" />
+        app:layout_constraintTop_toBottomOf="@id/btnFIGuardar" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnFEGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoboton3"
+        android:text="@string/btnGuardar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/txtFicheroExterno" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnFELeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoboton4"
-        app:layout_constraintStart_toEndOf="@id/button3"
-        app:layout_constraintTop_toBottomOf="@id/textView2" />
+        android:text="@string/btnLeer"
+        app:layout_constraintStart_toEndOf="@id/btnFEGuardar"
+        app:layout_constraintTop_toBottomOf="@id/txtFicheroExterno" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtFicheroRaw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoRaw"
+        android:text="@string/txtFicheroRaw"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button4" />
+        app:layout_constraintTop_toBottomOf="@id/btnFEGuardar" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnFRGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoboton5"
+        android:text="@string/btnGuardar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView3" />
+        app:layout_constraintTop_toBottomOf="@id/txtFicheroRaw" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnFRLeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/textoboton6"
-        app:layout_constraintStart_toEndOf="@id/button5"
-        app:layout_constraintTop_toBottomOf="@id/textView3" />
-
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/hello_blank_fragment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button6" />
+        android:text="@string/btnLeer"
+        app:layout_constraintStart_toEndOf="@id/btnFRGuardar"
+        app:layout_constraintTop_toBottomOf="@id/txtFicheroRaw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
