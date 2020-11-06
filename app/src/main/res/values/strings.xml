@@ -19,34 +19,6 @@
     <string name="botonxml">Preferencias, pero xml</string>
     <string name="mostrarxml">Mostrar Preferencias, pero las del xml</string>
     <string name="textMusica">Música</string>
-    <string-array name="nivel">
-        <item>Para niños</item>
-        <item>Fácil</item>
-        <item>Normal</item>
-        <item>Difícil</item>
-        <item>Imposible</item>
-    </string-array>
-    <string-array name="codigonivel">
-        <item>01</item>
-        <item>02</item>
-        <item>03</item>
-        <item>04</item>
-        <item>05</item>
-    </string-array>
-    <string-array name="niveles">
-        <item>Mundo 1</item>
-        <item>Mundo 2</item>
-        <item>Mundo 3</item>
-        <item>Mundo 4</item>
-        <item>Mundo 5</item>
-    </string-array>
-    <string-array name="codigoniveles">
-        <item>01</item>
-        <item>02</item>
-        <item>03</item>
-        <item>04</item>
-        <item>05</item>
-    </string-array>
 
     <!-- Ficheros -->
     <string name="txtGuardar">Texto a guardar:</string>
@@ -64,6 +36,20 @@
     <string name="bbdd_lbl_telefono">Teléfono</string>
     <string name="bbdd_btn_guardar">Almacenar datos lugar</string>
     <string name="bbdd_lbl_contador">Número de registros</string>
-    <string name="bbdd_lbl_total"></string>
+    <string name="bbdd_lbl_total">XX</string>
     <string name="bbdd_btn_eliminar">Eliminar Lugar</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

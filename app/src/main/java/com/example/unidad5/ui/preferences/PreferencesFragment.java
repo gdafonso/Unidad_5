@@ -3,13 +3,6 @@ package com.example.unidad5.ui.preferences;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import com.example.unidad5.R;
 
 import java.util.HashSet;
@@ -27,10 +21,10 @@ import static android.content.Context.MODE_PRIVATE;
 public class PreferencesFragment extends Fragment {
     public static final String PREFS_NAME = "MySharedFile";
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_preferences, container, false);
 
         final TextView etiqueta = root.findViewById(R.id.txtView);
@@ -49,7 +43,7 @@ public class PreferencesFragment extends Fragment {
         botonguardarnombre.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String nombre = cuadronombre.getText().toString();
-                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences preferencias = getParentFragment().getActivity().getSharedPreferences("perfil", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
                 editor.putString("nombre", nombre);
                 editor.commit();
@@ -60,7 +54,7 @@ public class PreferencesFragment extends Fragment {
         botonguardaralias.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String nick = cuadroalias.getText().toString();
-                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences preferencias = getParentFragment().getActivity().getSharedPreferences("perfil", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
                 editor.putString("alias", nick);
                 editor.commit();
@@ -75,16 +69,16 @@ public class PreferencesFragment extends Fragment {
                 else
                     musica = "OFF";
 
-                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences preferencias = getParentFragment().getActivity().getSharedPreferences("perfil", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
                 editor.putString("musica", musica);
                 editor.commit();
             }//onClick
         });
 
-        botonguardatodo.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+        botonguardatodo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                SharedPreferences preferencias = getParentFragment().getActivity().getSharedPreferences("perfil", MODE_PRIVATE);
                 String nombre = cuadronombre.getText().toString();
                 String nick = cuadroalias.getText().toString();
                 final String musica;
@@ -94,11 +88,11 @@ public class PreferencesFragment extends Fragment {
                     musica = "OFF";
 
                 SharedPreferences.Editor editor = preferencias.edit();
-                editor.putString("nombre",nombre);
+                editor.putString("nombre", nombre);
                 editor.commit();
-                editor.putString("alias",nick);
+                editor.putString("alias", nick);
                 editor.commit();
-                editor.putString("musica",musica);
+                editor.putString("musica", musica);
                 editor.commit();
                 cuadroalias.setText("");
                 cuadronombre.setText("");
@@ -108,7 +102,7 @@ public class PreferencesFragment extends Fragment {
         botonmuestratodo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                SharedPreferences preferencias = getContext().getSharedPreferences("perfil", MODE_PRIVATE);
+                SharedPreferences preferencias = getParentFragment().getActivity().getSharedPreferences("perfil", MODE_PRIVATE);
                 String nombre = preferencias.getString("nombre", "no definido");
                 String alias = preferencias.getString("alias", "no definido");
                 String musiconoff = preferencias.getString("musica", "sin definir");
@@ -119,17 +113,16 @@ public class PreferencesFragment extends Fragment {
         botonxmlpreferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intencionxml = new Intent(getContext(), PreferenciasContenedor.class);
-                getContext().startActivity(intencionxml);
-
+                Intent intencionxml = new Intent(getActivity(), SettingsContainerActivity.class);
+                PreferencesFragment.this.startActivity(intencionxml);
             }
         });
 
         botonmostrarxmlpreferences.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                SharedPreferences preferencias = getContext().getSharedPreferences("com.example.shared_preferences", MODE_PRIVATE);
-                HashSet vacio=new HashSet<String>();
+                SharedPreferences preferencias = getParentFragment().getActivity().getSharedPreferences("com.example.unidad5_preferences", MODE_PRIVATE);
+                HashSet vacio = new HashSet<String>();
                 vacio.add("1");
                 vacio.add("2");
                 String nombre = preferencias.getString("Nombre", "no definido");
@@ -141,11 +134,10 @@ public class PreferencesFragment extends Fragment {
                 String nivelesstring = niveles.toString();
                 String vibracion = String.valueOf(preferencias.getBoolean("Vibracion", false));
                 String giros = String.valueOf(preferencias.getBoolean("Giroscopio", false));
-                etiqueta.setText(nombre + ", " + alias + ", " + musiconoff + ", " + sonidos + ", " + nivel + ", " +nivelesstring + ", " + vibracion + ", " + giros);
+                etiqueta.setText(nombre + ", " + alias + ", " + musiconoff + ", " + sonidos + ", " + nivel + ", " + nivelesstring + ", " + vibracion + ", " + giros);
 
             }//onClick
         });
-
-        return root;
+    return root;
     }
 }

@@ -1,15 +1,16 @@
 package com.example.unidad5.ui.preferences;
 
-import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 import com.example.unidad5.R;
 
-public class PreferenciasContenedor extends AppCompatActivity {
+public class SettingsContainerActivity extends AppCompatActivity implements SettingsFragment.OnFragmentInteractionListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.preferenciascontenedor);
+        setContentView(R.layout.activity_settings_container);
 
     }
 }

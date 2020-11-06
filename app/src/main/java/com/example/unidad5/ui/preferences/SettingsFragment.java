@@ -10,7 +10,7 @@ import com.example.unidad5.R;
 public class SettingsFragment extends PreferenceFragmentCompat {
     private OnFragmentInteractionListener mListener;
 
-    //@Override
+    @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Load the preferences from an XML resource
         setPreferencesFromResource(R.xml.preferences, rootKey);

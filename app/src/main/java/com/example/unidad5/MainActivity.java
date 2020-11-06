@@ -1,9 +1,7 @@
 package com.example.unidad5;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.unidad5.ui.bbdd.BaseDatos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
