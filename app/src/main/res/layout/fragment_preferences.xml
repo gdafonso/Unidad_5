@@ -7,19 +7,19 @@
     tools:context=".ui.preferences.PreferencesFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/textNombre"
+        android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/etiquetanombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txtView" />
     <EditText
         android:id="@+id/CampoNombre"
         android:layout_width="wrap_content"
@@ -27,11 +27,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintStart_toEndOf="@+id/textNombre"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/txtNombre"
+        app:layout_constraintTop_toBottomOf="@+id/txtView" />
 
     <TextView
-        android:id="@+id/textNick"
+        android:id="@+id/txtNick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -48,7 +48,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintStart_toEndOf="@+id/textNick"
+        app:layout_constraintStart_toEndOf="@+id/txtNick"
         app:layout_constraintTop_toBottomOf="@+id/CampoNombre" />
 
     <Button
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CampoAlias"/>
 
     <TextView
-        android:id="@+id/textMusica"
+        android:id="@+id/txtMusica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textMusica"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/textMusica"
+        app:layout_constraintStart_toEndOf="@+id/txtMusica"
         app:layout_constraintTop_toBottomOf="@+id/btnGuardarNombre" />
 
     <Button

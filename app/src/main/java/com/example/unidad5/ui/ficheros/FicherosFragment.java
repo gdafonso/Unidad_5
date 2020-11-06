@@ -61,7 +61,7 @@ public class FicherosFragment extends Fragment {
 
                 FileOutputStream fos = null;
                 try {
-                    fos =  getContext().openFileOutput(FILENAME,  getContext().MODE_APPEND);
+                    fos =  getContext().openFileOutput(FILENAME, 0);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }

@@ -32,16 +32,16 @@ public class PreferencesFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_preferences, container, false);
 
-        final TextView etiqueta = root.findViewById(R.id.textView2);
+        final TextView etiqueta = root.findViewById(R.id.txtView);
         final EditText cuadronombre = root.findViewById(R.id.CampoNombre);
         final EditText cuadroalias = root.findViewById(R.id.CampoAlias);
-        final Button botonguardarnombre = root.findViewById(R.id.buttonguardar);
-        final Button botonguardaralias = root.findViewById(R.id.button1);
-        final ToggleButton toggle = root.findViewById(R.id.toggleButton1);
-        final Button botonguardatodo = root.findViewById(R.id.buttonmostrar);
-        final Button botonmuestratodo = root.findViewById(R.id.button4);
-        final Button botonxmlpreferences = root.findViewById(R.id.buttonxml);
-        final Button botonmostrarxmlpreferences = root.findViewById(R.id.mostrarxml);
+        final Button botonguardarnombre = root.findViewById(R.id.btnGuardarNombre);
+        final Button botonguardaralias = root.findViewById(R.id.btnGuardarNick);
+        final ToggleButton toggle = root.findViewById(R.id.btnMusica);
+        final Button botonguardatodo = root.findViewById(R.id.btnGuardarTodo);
+        final Button botonmuestratodo = root.findViewById(R.id.btnMostrar);
+        final Button botonxmlpreferences = root.findViewById(R.id.btnXml);
+        final Button botonmostrarxmlpreferences = root.findViewById(R.id.btnMostrarXml);
 
         etiqueta.setText("");
 
