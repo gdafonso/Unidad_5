@@ -24,6 +24,10 @@
             android:name=".ui.bbdd.CompartirDatos"
             android:exported="true">
         </provider>
+        <activity
+            android:authorities="com.example.unidad5.ui.preferences.PreferenciasContenedor"
+            android:name=".ui.preferences.PreferenciasContenedor"
+            android:exported="true" />
     </application>
 
 </manifest>
