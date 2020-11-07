@@ -7,12 +7,21 @@
     tools:context=".ui.preferences.PreferencesFragment">
 
     <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resultado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResultado" />
+
     <TextView
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
@@ -20,6 +29,7 @@
         android:text="@string/etiquetanombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtView" />
+
     <EditText
         android:id="@+id/CampoNombre"
         android:layout_width="wrap_content"
@@ -51,13 +61,29 @@
         app:layout_constraintStart_toEndOf="@+id/txtNick"
         app:layout_constraintTop_toBottomOf="@+id/CampoNombre" />
 
+    <TextView
+        android:id="@+id/txtAvisos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textAvisos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CampoAlias" />
+
+    <ToggleButton
+        android:id="@+id/btnAvisos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/txtAvisos"
+        app:layout_constraintTop_toBottomOf="@+id/CampoAlias" />
+
     <Button
         android:id="@+id/btnGuardarNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/botonnombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CampoAlias" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAvisos" />
 
     <Button
         android:id="@+id/btnGuardarNick"
@@ -65,30 +91,14 @@
         android:layout_height="wrap_content"
         android:text="@string/botonnick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CampoAlias"/>
-
-    <TextView
-        android:id="@+id/txtMusica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textMusica"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGuardarNombre" />
-
-    <ToggleButton
-        android:id="@+id/btnMusica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/txtMusica"
-        app:layout_constraintTop_toBottomOf="@+id/btnGuardarNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAvisos"/>
 
     <Button
         android:id="@+id/btnGuardarTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/botontodo"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGuardarNombre" />
 
    <Button

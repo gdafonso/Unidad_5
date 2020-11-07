@@ -1,51 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="Primera Categoría" >
+    <PreferenceCategory android:title="Datos personales" >
         <EditTextPreference
             android:dialogTitle="Introduzca su Nombre"
             android:key="Nombre"
             android:title="Nombre" />
         <EditTextPreference
-            android:dialogTitle="Introduzca su Alias"
-            android:key="Alias"
-            android:title="Alias" />
-
-        <CheckBoxPreference
-            android:key="Music"
-            android:summary="Encender o apagar musica"
-            android:title="Musica" />
-        <CheckBoxPreference
-            android:key="Sonidos"
-            android:summary="Encender o apagar efectos"
-            android:title="Sonidos" />
+            android:dialogTitle="Introduzca sus Apellidos"
+            android:key="Apellidos"
+            android:title="Apellidos" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Segunda Categoría" >
+    <PreferenceCategory android:title="Datos de sesanciones" >
         <ListPreference
-            android:dialogTitle="Indicar Nivel"
-            android:entries="@array/nivel"
-            android:entryValues="@array/codigonivel"
-            android:key="Nivel"
-            android:summary="Indicar el nivel de dificultad deseado"
-            android:title="Lista de Niveles" />
+            android:dialogTitle="Nivel de preocupación"
+            android:entries="@array/nivelpreocupacion"
+            android:entryValues="@array/codigonivelpreocupacion"
+            android:key="NivelPreocupación"
+            android:summary="Indicar el nivel de preocupación que tiene"
+            android:title="Nivel de preocupación" />
 
         <MultiSelectListPreference
-            android:dialogTitle="Niveles a jugar"
-            android:entries="@array/niveles"
-            android:entryValues="@array/codigoniveles"
-            android:key="Niveles"
-            android:summary="Elija en qué niveles desea jugar"
-            android:title="Niveles jugables" />
+            android:dialogTitle="Síntomas"
+            android:entries="@array/sintomas"
+            android:entryValues="@array/codigosintomas"
+            android:key="Sintomas"
+            android:summary="Elija los síntomas que tiene"
+            android:title="Síntomas" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Tercera Categoría" >
+    <PreferenceCategory android:title="Avisos" >
         <CheckBoxPreference
-            android:key="Vibracion"
-            android:summary="Encender o apagar Vibración"
-            android:title="Vibración" />
+            android:key="Notificaciones"
+            android:summary="Encender o apagar notificaciones"
+            android:title="Notificaciones" />
         <CheckBoxPreference
-            android:key="Giroscopio"
-            android:summary="Giroscopio si o Giroscopio no"
-            android:title="Giroscopio" />
+            android:key="Positivos"
+            android:summary="Positivos cerca"
+            android:title="Positivos" />
     </PreferenceCategory>
 
 </PreferenceScreen>

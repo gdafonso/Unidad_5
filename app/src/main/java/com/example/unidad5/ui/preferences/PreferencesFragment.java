@@ -32,7 +32,7 @@ public class PreferencesFragment extends Fragment {
         final EditText cuadroalias = root.findViewById(R.id.CampoAlias);
         final Button botonguardarnombre = root.findViewById(R.id.btnGuardarNombre);
         final Button botonguardaralias = root.findViewById(R.id.btnGuardarNick);
-        final ToggleButton toggle = root.findViewById(R.id.btnMusica);
+        final ToggleButton toggle = root.findViewById(R.id.btnAvisos);
         final Button botonguardatodo = root.findViewById(R.id.btnGuardarTodo);
         final Button botonmuestratodo = root.findViewById(R.id.btnMostrar);
         final Button botonxmlpreferences = root.findViewById(R.id.btnXml);
@@ -126,15 +126,13 @@ public class PreferencesFragment extends Fragment {
                 vacio.add("1");
                 vacio.add("2");
                 String nombre = preferencias.getString("Nombre", "no definido");
-                String alias = preferencias.getString("Alias", "no definido");
-                String musiconoff = String.valueOf(preferencias.getBoolean("Music", false));
-                String sonidos = String.valueOf(preferencias.getBoolean("Sonidos", false));
-                String nivel = preferencias.getString("Nivel", "sin definir");
-                HashSet niveles = (HashSet) preferencias.getStringSet("Niveles", vacio);
-                String nivelesstring = niveles.toString();
-                String vibracion = String.valueOf(preferencias.getBoolean("Vibracion", false));
-                String giros = String.valueOf(preferencias.getBoolean("Giroscopio", false));
-                etiqueta.setText(nombre + ", " + alias + ", " + musiconoff + ", " + sonidos + ", " + nivel + ", " + nivelesstring + ", " + vibracion + ", " + giros);
+                String apellidos = preferencias.getString("Apellidos", "no definido");
+                String notificaciones = String.valueOf(preferencias.getBoolean("Notificaciones", false));
+                String nivelpreocupacion = preferencias.getString("NivelPreocupación", "sin definir");
+                HashSet sintomas = (HashSet) preferencias.getStringSet("Sintomas", vacio);
+                String sintomasstring = sintomas.toString();
+                String positivos = String.valueOf(preferencias.getBoolean("Positivos", false));
+                etiqueta.setText(nombre + ", " + apellidos + ", " + nivelpreocupacion + ", " + sintomasstring + ", " + notificaciones + ", " + positivos);
 
             }//onClick
         });

@@ -1,24 +1,23 @@
 <resources>
+    <!-- General -->
     <string name="app_name">Unidad 5</string>
     <string name="title_preferences">Preferences</string>
     <string name="title_ficheros">Ficheros</string>
     <string name="title_bbdd">BBDD</string>
     <string name="title_contentprovider">ContentProvider</string>
-    <string name="hello_blank_fragment">hello blank fragment</string>
-    <string name="txtcontentprovider">Implementado en la BBDD</string>
 
     <!-- Shared -->
+    <string name="resultado">Resultado</string>
     <string name="etiquetanombre">Indique su nombre</string>
     <string name="etiquetnick">Indique su nick</string>
     <string name="botonnombre">Guardar nombre</string>
     <string name="botonnick">Guardar nick</string>
     <string name="botontodo">Guardar Todo</string>
-    <string name="botonmostrartodo">Mostrar en Textview</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="botonmostrartodo">Mostrar preferencias</string>
     <string name="textoboton">Preferencias</string>
-    <string name="botonxml">Preferencias, pero xml</string>
-    <string name="mostrarxml">Mostrar Preferencias, pero las del xml</string>
-    <string name="textMusica">Música</string>
+    <string name="botonxml">Preferencias XML</string>
+    <string name="mostrarxml">Mostrar preferencias XML</string>
+    <string name="textAvisos">Avisos</string>
 
     <!-- Ficheros -->
     <string name="txtGuardar">Texto a guardar:</string>
@@ -38,18 +37,7 @@
     <string name="bbdd_lbl_contador">Número de registros</string>
     <string name="bbdd_lbl_total">XX</string>
     <string name="bbdd_btn_eliminar">Eliminar Lugar</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- Content -->
+    <string name="txtcontentprovider">Implementado en la BBDD</string>
 </resources>
